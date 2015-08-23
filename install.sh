@@ -13,11 +13,11 @@ install_jenkins(){
 	echo "install with $NAME on $HOST : $VERSION with $ARCH architecture"
 	echo "-------------------INSTALL---------------------"
 	apt-get update
-	apt-get install -y openjdk-7-jdk 
-	apt-get install -y openjdk-7-jre 
+	apt-get install -y openjdk-7-jdk
+	apt-get install -y openjdk-7-jre
 	wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
 	echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list
-	apt-get update 
+	apt-get update
 	apt-get install -y jenkins
 }
 # ----------------------------------------------------------------
@@ -68,7 +68,8 @@ install_global_npm_packages() {
 		apt-get update
 		npm install -g npm
 		npm --version
-	else 
+		
+	else
 		curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
 		apt-get update
 		apt-get install --yes nodejs
@@ -83,7 +84,7 @@ update_nodejs(){
 	npm install -g n
 	n stable
 	node --version
-	npm install -g npm 
+	npm install -g npm
 	npm --version
 }
 # ----------------------------------------------------------------
@@ -112,39 +113,38 @@ clear
 		echo ""
 		echo "First time install jenkins"
 		install_jenkins
-		read -p "Finish!, Press any key to continue" press 
+		read -p "Finish!, Press any key to continue" press
 		;;
 		2)
 		echo ""
 		echo "Update new version of jenkins"
 		update_jenkins
-		read -p "Finish!, Press any key to continue" press 
+		read -p "Finish!, Press any key to continue" press
 		;;
 		3)
 		echo ""
 		echo "Install plugins jenkins"
 		install_plugins_jenkins
-		read -p "Finish!, Press any key to continue" press 
+		read -p "Finish!, Press any key to continue" press
 		;;
 		4)
 		echo ""
 		echo "Install PhantomJs"
 		install_phantomjs
-		read -p "Finish!, Press any key to continue" press 
+		read -p "Finish!, Press any key to continue" press
 		;;
 		5)
 		echo ""
 		echo "Install global npm package"
 		install_global_npm_packages
-		read -p "Finish!, Press any key to continue" press 
+		read -p "Finish!, Press any key to continue" press
 		;;
 		6)
 		echo ""
 		echo "Update nodejs and npm"
 		update_nodejs
-		read -p "Finish!, Press any key to continue" press 
+		read -p "Finish!, Press any key to continue" press
 		;;
 		7) exit;;
 	esac
-done 
-
+done
