@@ -67,8 +67,8 @@ install_global_npm_packages() {
 	if [ -x /usr/local/bin/node ] && [ -x /usr/local/bin/npm ]; then
 		apt-get update
 		npm install -g npm
-		npm --version
-		
+		npm install -g gulp phantomjs mocha karma-cli bower express browser-sync express-generator
+		npm list -g --depth=0
 	else
 		curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
 		apt-get update
